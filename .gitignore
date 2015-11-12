@@ -1,0 +1,45 @@
+#local settings override
+*/settings/local.py
+
+#ignore sqlite3
+*.sqlite3
+
+#python bytecode
+__pycache__/
+*.py[cod]
+
+#test stuff
+.tox/
+.coverage
+coverage.xml
+*junit.xml
+htmlcov
+venv
+
+#sphinx
+docs/_build/
+
+#pip stuff
+pip-log.txt
+.pipcache
+
+#mac stuff
+.DS_Store
+
+#editor stuff
+*.swp
+
+#test run stuff
+nohup.out
+
+#npm stuff
+django-uswds/static/django-uswds/uswds/
+npm-debug.log
+
+#static files
+/static
+
+#python build stuff
+build/
+dist/
+django_uswds.egg-info/

@@ -1,0 +1,27 @@
+Similarities
+1) uses normalize
+2) Merriweather font
+3) virtually the same grid structure (12 col, w/gutters). Can be search/replaced.
+4) design of POHE (plain old html elements)
+
+Differences
+1) @import (wasn't possible b/c of Portal)
+2) uswds is very div-heavy, doesn't handle nesting well
+
+Omissions
+1) offscreen_noflow
+2) breadcrumbs
+3) 5 column split
+
+TODOs
+1) rewrite header
+2) rewrite searchbar
+3) rewrite footer
+4) Maybe contribute Alissa's skipnav
+
+
+%s/grid/usa-grid/gi
+%s/twelve_col/usa-width-one-whole/gi
+my shadow == their shadow
+
+<div id="universal_header" class="universal_header"> => <header class="usa-site-header" role="banner">
