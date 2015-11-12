@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  {% load staticfiles %}
+
+  <!-- Mobile properties -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  {% load compress %}
+
+  {% compress css %}
+  <link href="{% static 'django-uswds/uswds/css/uswds.css' %}" rel="stylesheet" type="text/css"/>
+  <link href="{% static 'django-uswds/uswds/css/google-fonts.css' %}" rel="stylesheet" type="text/css"/>
+  {% endcompress %}
+
+  <!-- < IE9 (after stylesheets) -->
+  <!--[if lt IE 9]>
+    <script src="/designstandards/assets/js/vendor/html5shiv.js"></script>
+    <script src="/designstandards/assets/js/vendor/selectivizr-min.js"></script>
+  <![endif]-->
+
+  <title>
+  {% block pagetitle %}{% endblock pagetitle %}
+  </title>
+
+  {% block extra_head_content %}{% endblock %}
+</head>
+<body>
+
+  {% block content %}{% endblock %}
+
+  {% compress js %}
+  <!--[if lt IE 9]>
+    <script src="/designstandards/assets/js/vendor/respond.js"></script>
+    <script src="/designstandards/assets/js/vendor/rem.min.js"></script>
+  <![endif]-->
+  <script type="text/javascript" src="{% static 'django-uswds/uswds/js/vendor/jquery-1.11.3.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'django-uswds/uswds/js/components.js' %}"></script>
+  {% endcompress %}
+
+  {% block extra_foot_content %}{% endblock %}
+</body>
+</html>
