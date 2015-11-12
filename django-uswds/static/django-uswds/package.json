@@ -1,0 +1,9 @@
+{
+  "name": "django-uswds",
+  "version": "1.0.0",
+  "description": "package.json listing United States Web Design Standards as a dependency",
+  "license": "Public Domain",
+  "dependencies": {
+    "us-web-design-standards": "git://github.com/18f/web-design-standards.git#add-npm"
+  }
+}
