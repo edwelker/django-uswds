@@ -35,6 +35,7 @@ nohup.out
 #npm stuff
 django-uswds/static/django-uswds/uswds/
 npm-debug.log
+node-modules
 
 #static files
 /static
