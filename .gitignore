@@ -44,3 +44,5 @@ node-modules
 build/
 dist/
 django_uswds.egg-info/
+
+.ropeproject
