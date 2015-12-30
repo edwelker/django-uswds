@@ -29,11 +29,11 @@
   {% block pagetitle %}{% endblock pagetitle %}
   </title>
 
-  {% block extra_head_content %}{% endblock %}
+  {% block extra_head_content %}{% endblock extra_head_content %}
 </head>
 <body>
 
-  {% block content %}{% endblock %}
+  {% block content %}{% endblock content %}
 
   {% compress js %}
   <!--[if lt IE 9]>
@@ -44,6 +44,6 @@
   <script type="text/javascript" src="{% static 'django-uswds/uswds/js/components.js' %}"></script>
   {% endcompress %}
 
-  {% block extra_foot_content %}{% endblock %}
+  {% block extra_foot_content %}{% endblock extra_foot_content %}
 </body>
 </html>
