@@ -13,6 +13,7 @@ build:
 	python setup.py bdist_wheel
 
 npminstall:
+	test -d django-uswds/static/django-uswds || mkdir -p django-uswds/static/django-uswds
 	npm install && mv node_modules/us-web-design-standards/dist django-uswds/static/django-uswds/uswds && rm -rf node_modules && rm -rf django-uswds/static/django-uswds/uswds/_scss django-uswds/static/django-uswds/uswds/zip
 
 upload: | clean npminstall
