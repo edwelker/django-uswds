@@ -9,7 +9,7 @@ NCBI Standard template is the NCBI Standards approved header and footer, incorpo
 
 2.  Install 'ncbibasetempalte' and 'compressor' to settings.INSTALLED_APPS
 
-    ``INSTALLED_APPS += ('django-uswds',
+    ``INSTALLED_APPS += ('django_uswds',
                          'compressor',
                         )``
 
@@ -26,7 +26,7 @@ NCBI Standard template is the NCBI Standards approved header and footer, incorpo
 
 4. Extend the base template:
 
-    ``{% extends 'django-uswds/base.html' %}``
+    ``{% extends 'django_uswds/base.html' %}``
 
 5. Fill out the following blocks (all are optional):
 

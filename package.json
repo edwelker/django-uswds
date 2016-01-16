@@ -1,5 +1,5 @@
 {
-  "name": "django-uswds",
+  "name": "django_uswds",
   "version": "1.0.0",
   "description": "package.json listing United States Web Design Standards as a dependency",
   "license": "Public Domain",

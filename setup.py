@@ -10,7 +10,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='django-uswds',
     version='0.0.1.a2',
-    packages=['django-uswds'],
+    packages=['django_uswds'],
     install_requires=['django_compressor>=1.4'],
     include_package_data=True,
     license='Public Domain',

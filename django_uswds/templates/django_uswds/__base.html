@@ -15,8 +15,8 @@
   {% load compress %}
 
   {% compress css %}
-  <link href="{% static 'django-uswds/uswds/css/uswds.css' %}" rel="stylesheet" type="text/css"/>
-  <link href="{% static 'django-uswds/uswds/css/google-fonts.css' %}" rel="stylesheet" type="text/css"/>
+  <link href="{% static 'django_uswds/uswds/css/uswds.css' %}" rel="stylesheet" type="text/css"/>
+  <link href="{% static 'django_uswds/uswds/css/google-fonts.css' %}" rel="stylesheet" type="text/css"/>
   {% endcompress %}
 
   <!-- < IE9 (after stylesheets) -->
@@ -40,8 +40,8 @@
     <script src="/designstandards/assets/js/vendor/respond.js"></script>
     <script src="/designstandards/assets/js/vendor/rem.min.js"></script>
   <![endif]-->
-  <script type="text/javascript" src="{% static 'django-uswds/uswds/js/vendor/jquery-1.11.3.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'django-uswds/uswds/js/components.js' %}"></script>
+  <script type="text/javascript" src="{% static 'django_uswds/uswds/js/vendor/jquery-1.11.3.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'django_uswds/uswds/js/components.js' %}"></script>
   {% endcompress %}
 
   {% block extra_foot_content %}{% endblock extra_foot_content %}
