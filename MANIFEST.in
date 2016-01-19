@@ -1,7 +1,7 @@
 include LICENSE
 include README.md
-graft django-uswds/templates
-graft django-uswds/static
+graft django_uswds/templates
+graft django_uswds/static
 exclude .gitignore
-exclude django-uswds/static/django-uswds/uswds/css/main.scss
-exclude django-uswds/static/django-uswds/package.json
+exclude django_uswds/static/django_uswds/uswds/css/main.scss
+exclude django_uswds/static/django_uswds/package.json

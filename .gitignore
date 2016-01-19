@@ -33,7 +33,7 @@ pip-log.txt
 nohup.out
 
 #npm stuff
-django-uswds/static/django-uswds/uswds/
+django_uswds/static/django_uswds/uswds/
 npm-debug.log
 node-modules
 
@@ -44,3 +44,5 @@ node-modules
 build/
 dist/
 django_uswds.egg-info/
+
+.ropeproject
