@@ -1,5 +1,9 @@
 .PHONY: clean all check npminstall build upload
 
+# get the version, strip after last -, remove front 'v', convert '-' to 'a'
+# v1.0.0-5-g1305532 => 1.0.0a5
+VERSION=$$(git describe | cut -f1,2 -d'-' | cut -f2 -d'v' | sed -e 's/-/a/')
+
 all: | clean npminstall build
 
 clean:
@@ -17,4 +21,4 @@ npminstall:
 	npm install && mv node_modules/us-web-design-standards/dist django_uswds/static/django_uswds/uswds && rm -rf node_modules && rm -rf django_uswds/static/django_uswds/uswds/_scss django_uswds/static/django_uswds/uswds/zip
 
 upload: | clean npminstall
-	python setup.py bdist_wheel upload -r python-local-repo
+	VERSION=$(VERSION) python setup.py bdist_wheel upload -r python-local-repo
