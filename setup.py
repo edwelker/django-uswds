@@ -2,7 +2,7 @@ import os
 from setuptools import setup
 from pathlib import Path
 
-with open(Path() / 'README.md') as readme:
+with open(str(Path() / 'README.md')) as readme:
     README = readme.read()
 
 setup(
