@@ -15,15 +15,9 @@
   {% load compress %}
 
   {% compress css %}
-  <link href="{% static 'django_uswds/uswds/css/uswds.css' %}" rel="stylesheet" type="text/css"/>
-  <link href="{% static 'django_uswds/uswds/css/google-fonts.css' %}" rel="stylesheet" type="text/css"/>
+  <link href="{% static 'django_uswds/uswds/css/uswds.min.css' %}" rel="stylesheet" type="text/css"/>
   {% endcompress %}
 
-  <!-- < IE9 (after stylesheets) -->
-  <!--[if lt IE 9]>
-    <script src="/designstandards/assets/js/vendor/html5shiv.js"></script>
-    <script src="/designstandards/assets/js/vendor/selectivizr-min.js"></script>
-  <![endif]-->
 
   <title>
   {% block pagetitle %}{% endblock pagetitle %}
@@ -36,12 +30,7 @@
   {% block content %}{% endblock content %}
 
   {% compress js %}
-  <!--[if lt IE 9]>
-    <script src="/designstandards/assets/js/vendor/respond.js"></script>
-    <script src="/designstandards/assets/js/vendor/rem.min.js"></script>
-  <![endif]-->
-  <script type="text/javascript" src="{% static 'django_uswds/uswds/js/vendor/jquery-1.11.3.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'django_uswds/uswds/js/components.js' %}"></script>
+  <script src="django_uswds/uswds/js/uswds.min.js"></script>
   {% endcompress %}
 
   {% block extra_foot_content %}{% endblock extra_foot_content %}
