@@ -21,4 +21,9 @@ npminstall:
 	npm install && mv node_modules/uswds/dist django_uswds/static/django_uswds/uswds && rm -rf node_modules && rm -rf django_uswds/static/django_uswds/uswds/_scss django_uswds/static/django_uswds/uswds/zip
 
 upload: | clean npminstall
-	VERSION=$(VERSION) python setup.py bdist_wheel upload -r python-local-repo
+# get the git version number, clean it, pass it as env var to setup.py
+	VERSION=$(VERSION) ./venv/bin/python setup.py bdist_wheel -d wheelhouse/
+	$(VIRTUALENV) twine-env
+	. twine-env/bin/activate
+	twine-env/bin/pip install "twine==1.5.0+ncbi.1"
+	PYPI_REPOSITORY=https://anonymous:@artifactory.ncbi.nlm.nih.gov/artifactory/api/pypi/python-local-repo twine-env/bin/twine upload wheelhouse/*.whl
