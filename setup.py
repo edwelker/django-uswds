@@ -2,8 +2,12 @@ import os
 from setuptools import setup
 from pathlib import Path
 
-with open(str(Path() / 'README.md')) as readme:
+path = Path()
+
+with (path / "README.md").open() as readme:
     README = readme.read()
+
+
 
 setup(
     name='django-uswds',
