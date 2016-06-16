@@ -3,6 +3,7 @@
 # get the version, strip after last -, remove front 'v', convert '-' to 'a'
 # v1.0.0-5-g1305532 => 1.0.0a5
 VERSION=$$(git describe --always --tags | cut -f1,2 -d'-' | cut -f2 -d'v' | sed -e 's/-/.post/')
+VIRTUALENV=virtualenv
 
 all: | clean npminstall build
 
