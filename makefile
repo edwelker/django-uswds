@@ -10,6 +10,7 @@ all: | clean npminstall build
 clean:
 	\rm -rf dist django_uswds.egg-info build
 	\rm -rf django_uswds/static/django_uswds/uswds
+	git clean -d -x -f -e .tox
 
 check:
 	check-manifest
