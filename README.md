@@ -5,7 +5,7 @@ NCBI Standard template is the NCBI Standards approved header and footer, incorpo
 
 ## Quick start
 
-1. ``pip install django_uswds==0.0.1.a1`` to install the package.
+1. ``pip install django_uswds==0.0.6`` to install the package.
 
 2.  Install 'ncbibasetempalte' and 'compressor' to settings.INSTALLED_APPS
 
