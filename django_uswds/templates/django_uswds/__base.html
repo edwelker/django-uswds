@@ -18,18 +18,18 @@
   <link href="{% static 'django_uswds/uswds/css/uswds.min.css' %}" rel="stylesheet" type="text/css"/>
   {% endcompress %}
 
-
   <title>
-  {% block pagetitle %}{% endblock pagetitle %}
+    {% block pagetitle %}{% endblock pagetitle %}
   </title>
 
   {% block extra_head_content %}{% endblock extra_head_content %}
 </head>
 <body>
-
   {% block content %}{% endblock content %}
 
+  {% compress js %}
   <script src="{% static 'django_uswds/uswds/js/uswds.min.js' %}"></script>
+  {% endcompress %}
 
   {% block extra_foot_content %}{% endblock extra_foot_content %}
 </body>
