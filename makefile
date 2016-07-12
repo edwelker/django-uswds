@@ -33,7 +33,7 @@ upload: | clean venv githubinstall
 
 githubinstall:
 	test -d django_uswds/static/django_uswds || mkdir -p django_uswds/static/django_uswds
-	wget https://github.com/18F/web-design-standards/releases/download/v0.9.4/uswds-0.9.4.zip && unzip uswds-0.9.4.zip && mv uswds-0.9.4 django_uswds/static/django_uswds/uswds
+	wget https://github.com/18F/web-design-standards/releases/download/v0.9.5/uswds-0.9.5.zip && unzip uswds-0.9.5.zip && mv uswds-0.9.5 django_uswds/static/django_uswds/uswds
 
 venv:
 	test -d venv || $(VIRTUALENV) venv -p $(PYTHON) # Can't do source, no subshells
