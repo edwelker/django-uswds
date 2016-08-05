@@ -5,6 +5,7 @@
 VERSION=$$(git describe --always --tags | cut -f1,2 -d'-' | cut -f2 -d'v' | sed -e 's/-/.post/')
 VIRTUALENV=virtualenv
 PYTHON=$$(which python2)
+USWDS=0.11.0
 
 all: | clean npminstall build
 
@@ -33,7 +34,7 @@ upload: | clean venv githubinstall
 
 githubinstall:
 	test -d django_uswds/static/django_uswds || mkdir -p django_uswds/static/django_uswds
-	wget https://github.com/18F/web-design-standards/releases/download/v0.9.5/uswds-0.9.5.zip && unzip uswds-0.9.5.zip && mv uswds-0.9.5 django_uswds/static/django_uswds/uswds
+	wget https://github.com/18F/web-design-standards/releases/download/v$(USWDS)/uswds-$(USWDS).zip && unzip uswds-$(USWDS).zip && mv uswds-$(USWDS) django_uswds/static/django_uswds/uswds
 
 venv:
 	test -d venv || $(VIRTUALENV) venv -p $(PYTHON) # Can't do source, no subshells
