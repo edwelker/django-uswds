@@ -5,7 +5,7 @@
 VERSION=$$(git describe --always --tags | cut -f1,2 -d'-' | cut -f2 -d'v' | sed -e 's/-/.post/')
 VIRTUALENV=virtualenv
 PYTHON=$$(which python2)
-USWDS=0.13.1
+USWDS=0.13.2
 
 all: | clean npminstall build
 
