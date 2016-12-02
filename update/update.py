@@ -24,4 +24,6 @@ todo = ext.difference(local)
 print(todo)
 
 for t in todo:
-    subprocess.call(["VERSION={}".format(t), 'make', '-C', '..', 'upload'])
+    subprocess.call(['make', '-C', '..', 'upload'])
+
+print("done")

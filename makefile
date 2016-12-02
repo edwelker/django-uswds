@@ -5,6 +5,7 @@
 # VERSION=$$(git describe --always --tags | cut -f1,2 -d'-' | cut -f2 -d'v' | sed -e 's/-/.post/')
 VIRTUALENV=virtualenv
 PYTHON=$$(which python2)
+PROJECT=django-uswds
 # USWDS=0.13.3
 
 all: | clean npminstall build
@@ -31,6 +32,7 @@ upload: | clean venv githubinstall
 	. twine-env/bin/activate
 	twine-env/bin/pip install "twine==1.5.0+ncbi.1"
 	PYPI_REPOSITORY=https://anonymous:@artifactory.ncbi.nlm.nih.gov/artifactory/api/pypi/python-local-repo twine-env/bin/twine upload wheelhouse/*.whl
+	curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"Version $(VERSION) of $(PROJECT) has been released to <https://artifactory.ncbi.nlm.nih.gov/artifactory/webapp/#/artifacts/browse/tree/General/python-local-repo/$(PROJECT)/$(VERSION)|artifactory>.\", \"channel\": \"@eddie\", \"username\": \"teamcity\", \"icon_emoji\": \":pumpkin:\"}" https://hooks.slack.com/services/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
 
 githubinstall:
 	test -d django_uswds/static/django_uswds || mkdir -p django_uswds/static/django_uswds
