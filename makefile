@@ -2,10 +2,10 @@
 
 # get the version, strip after last -, remove front 'v', convert '-' to 'a'
 # v1.0.0-5-g1305532 => 1.0.0a5
-VERSION=$$(git describe --always --tags | cut -f1,2 -d'-' | cut -f2 -d'v' | sed -e 's/-/.post/')
+# VERSION=$$(git describe --always --tags | cut -f1,2 -d'-' | cut -f2 -d'v' | sed -e 's/-/.post/')
 VIRTUALENV=virtualenv
 PYTHON=$$(which python2)
-USWDS=0.13.3
+# USWDS=0.13.3
 
 all: | clean npminstall build
 
@@ -34,7 +34,7 @@ upload: | clean venv githubinstall
 
 githubinstall:
 	test -d django_uswds/static/django_uswds || mkdir -p django_uswds/static/django_uswds
-	wget https://github.com/18F/web-design-standards/releases/download/v$(USWDS)/uswds-$(USWDS).zip && unzip uswds-$(USWDS).zip && mv uswds-$(USWDS) django_uswds/static/django_uswds/uswds
+	wget https://github.com/18F/web-design-standards/releases/download/v$(VERSION)/uswds-$(VERSION).zip && unzip uswds-$(VERSION).zip && mv uswds-$(VERSION) django_uswds/static/django_uswds/uswds
 
 venv:
 	test -d venv || $(VIRTUALENV) venv -p $(PYTHON) # Can't do source, no subshells
