@@ -33,7 +33,7 @@ upload: | venv githubinstall
 	. twine-env/bin/activate
 	twine-env/bin/pip install "twine==1.5.0+ncbi.1"
 	PYPI_REPOSITORY=https://anonymous:@artifactory.ncbi.nlm.nih.gov/artifactory/api/pypi/python-local-repo twine-env/bin/twine upload wheelhouse/*.whl
-	curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"Version $(VERSION) of $(PROJECT) has been released to <https://artifactory.ncbi.nlm.nih.gov/artifactory/webapp/#/artifacts/browse/tree/General/python-local-repo/$(PROJECT)/$(VERSION)|artifactory>.\", \"channel\": \"@eddie\", \"username\": \"teamcity\", \"icon_emoji\": \":pumpkin:\"}" https://hooks.slack.com/services/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
+	curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"Version $(VERSION) of $(PROJECT) has been released to <https://artifactory.ncbi.nlm.nih.gov/artifactory/webapp/#/artifacts/browse/tree/General/python-local-repo/$(PROJECT)/$(VERSION)|artifactory>.\", \"channel\": \"#uswds\", \"username\": \"teamcity\", \"icon_emoji\": \":pumpkin:\"}" https://hooks.slack.com/services/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
 
 githubinstall:
 	rm -rf django_uswds/static/django_uswds uswds-*.zip
