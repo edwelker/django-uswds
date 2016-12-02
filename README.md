@@ -1,6 +1,6 @@
 # NCBI Standard Template
 
-NCBI Standard template is the NCBI Standards approved header and footer, incorporated into a HTML5 base Django template.
+The [United States Web Design Standards releases](https://github.com/18F/web-design-standards/releases), incorporated into a HTML5 base Django template.
 
 
 ## Quick start
