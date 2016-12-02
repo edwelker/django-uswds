@@ -53,4 +53,4 @@ createversions: | getversions
 # read each needed version, put it in artifactory, create a tag
 	while read P; do VERSION=$$P make upload && git tag -a $$P -m "$$P"; done<versions.txt
 # push tags back into repo, so we don't recreate next time
-	git push origin master
+	git push --tags
