@@ -1,4 +1,4 @@
-.PHONY: clean all check npminstall build upload
+.PHONY: clean semiclean all check npminstall build upload
 
 # get the version, strip after last -, remove front 'v', convert '-' to 'a'
 # v1.0.0-5-g1305532 => 1.0.0a5
@@ -10,11 +10,11 @@ PROJECT=django-uswds
 
 all: | clean npminstall build
 
-clean:
+semiclean:
 	\rm -rf dist django_uswds.egg-info build
 	\rm -rf django_uswds/static/django_uswds/uswds
 
-reallyclean: | clean
+clean: | semiclean
 	git clean -d -x -f -e .tox
 
 check:
@@ -37,7 +37,7 @@ upload: | venv githubinstall
 	PYPI_REPOSITORY=https://anonymous:@artifactory.ncbi.nlm.nih.gov/artifactory/api/pypi/python-local-repo twine-env/bin/twine upload wheelhouse/*.whl
 	curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"Version $(VERSION) of $(PROJECT) has been released to <https://artifactory.ncbi.nlm.nih.gov/artifactory/webapp/#/artifacts/browse/tree/General/python-local-repo/$(PROJECT)/$(VERSION)|artifactory>.\", \"channel\": \"@eddie\", \"username\": \"teamcity\", \"icon_emoji\": \":pumpkin:\"}" https://hooks.slack.com/services/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
 
-githubinstall: | clean
+githubinstall: | semiclean
 	test -d django_uswds/static/django_uswds || mkdir -p django_uswds/static/django_uswds
 	wget https://github.com/18F/web-design-standards/releases/download/v$(VERSION)/uswds-$(VERSION).zip && unzip uswds-$(VERSION).zip && mv uswds-$(VERSION) django_uswds/static/django_uswds/uswds
 
