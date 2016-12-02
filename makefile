@@ -25,7 +25,7 @@ npminstall:
 	test -d django_uswds/static/django_uswds || mkdir -p django_uswds/static/django_uswds
 	npm install && mv node_modules/uswds/dist django_uswds/static/django_uswds/uswds && rm -rf node_modules && rm -rf django_uswds/static/django_uswds/uswds/_scss django_uswds/static/django_uswds/uswds/zip
 
-upload: | clean venv githubinstall
+upload: | venv githubinstall
 # get the git version number, clean it, pass it as env var to setup.py
 	VERSION=$(VERSION) ./venv/bin/python setup.py bdist_wheel -d wheelhouse/
 	$(VIRTUALENV) twine-env
@@ -35,7 +35,8 @@ upload: | clean venv githubinstall
 	curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"Version $(VERSION) of $(PROJECT) has been released to <https://artifactory.ncbi.nlm.nih.gov/artifactory/webapp/#/artifacts/browse/tree/General/python-local-repo/$(PROJECT)/$(VERSION)|artifactory>.\", \"channel\": \"@eddie\", \"username\": \"teamcity\", \"icon_emoji\": \":pumpkin:\"}" https://hooks.slack.com/services/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
 
 githubinstall:
-	test -d django_uswds/static/django_uswds || mkdir -p django_uswds/static/django_uswds
+	rm -rf django_uswds/static/django_uswds uswds-*.zip
+	mkdir -p django_uswds/static/django_uswds
 	wget https://github.com/18F/web-design-standards/releases/download/v$(VERSION)/uswds-$(VERSION).zip && unzip uswds-$(VERSION).zip && mv uswds-$(VERSION) django_uswds/static/django_uswds/uswds
 
 venv:
@@ -47,4 +48,4 @@ getversions: | clean venv
 	./venv/bin/python update.py
 
 createversions: | getversions
-	while read P; do VERSION=$$P make upload; done<versions.txt
+	while read P; do VERSION=$$P make upload && git tag -a $$P -m "$$P"; done<versions.txt
