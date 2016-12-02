@@ -47,4 +47,4 @@ getversions: | venv
 	./venv/bin/python update.py
 
 createversions: | getversions
-	while read P; do echo $$P; done<versions.txt
+	while read P; do VERSION=$$P upload; done<versions.txt
