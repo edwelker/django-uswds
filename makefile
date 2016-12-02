@@ -19,6 +19,7 @@ check:
 	check-manifest
 
 build:
+	rm -rf wheelhouse/*
 	python setup.py bdist_wheel
 
 npminstall:
