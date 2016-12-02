@@ -21,7 +21,7 @@ ext = set(filtered_external_versions)
 
 todo = ext.difference(local)
 
-with open('../versions.txt', 'a') as file:
+with open('versions.txt', 'a') as file:
     [file.write(x) for x in todo]
 
 # This doesn't work for some dumb reason, and I don't feel like figuring it out

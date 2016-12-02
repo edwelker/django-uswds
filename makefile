@@ -43,4 +43,5 @@ venv:
 	./venv/bin/pip install -U wheel pip pathlib # For 3.5
 
 getversions:
-	update/update.sh
+	./venv/bin/pip install feedparser gitpython
+	./venv/bin/python update.py
