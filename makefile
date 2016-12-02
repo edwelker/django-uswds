@@ -42,6 +42,9 @@ venv:
 	test -d venv || $(VIRTUALENV) venv -p $(PYTHON) # Can't do source, no subshells
 	./venv/bin/pip install -U wheel pip pathlib # For 3.5
 
-getversions:
+getversions: | venv
 	./venv/bin/pip install feedparser gitpython
 	./venv/bin/python update.py
+
+createversions: | getversions
+	while read P; do echo $$P; done<versions.txt

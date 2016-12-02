@@ -13,7 +13,7 @@ pattern = re.compile("\d+.\d+.\d+")
 
 filtered_external_versions = [x for x in external_versions if pattern.match(x)]
 
-repo = Repo("..")
+repo = Repo(".")
 local_versions = [x.name for x in repo.tags]
 
 local = set(local_versions)
@@ -21,8 +21,8 @@ ext = set(filtered_external_versions)
 
 todo = ext.difference(local)
 
-with open('versions.txt', 'a') as file:
-    [file.write(x) for x in todo]
+with open('versions.txt', 'w') as file:
+    [file.write(x + "\n") for x in todo]
 
 # This doesn't work for some dumb reason, and I don't feel like figuring it out
 # Why permission errors?

@@ -50,3 +50,4 @@ django_uswds.egg-info/
 .idea/
 
 update/venv
+versions.txt
