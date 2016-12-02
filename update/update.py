@@ -1,7 +1,7 @@
 import feedparser
 import re
 from git import Repo
-import subprocess
+# import subprocess
 
 url = "https://github.com/18F/web-design-standards/releases.atom"
 feed = feedparser.parse(url)
@@ -21,9 +21,10 @@ ext = set(filtered_external_versions)
 
 todo = ext.difference(local)
 
-print(todo)
+with open('../versions.txt', 'a') as file:
+    [file.write(x) for x in todo]
 
-for t in todo:
-    subprocess.call(['make', '-C', '..', 'upload'])
-
-print("done")
+# This doesn't work for some dumb reason, and I don't feel like figuring it out
+# Why permission errors?
+# for t in todo:
+#     subprocess.call(["VERSION={}".format(t), 'make', '-C', '..', 'upload'])

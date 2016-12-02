@@ -41,3 +41,6 @@ githubinstall:
 venv:
 	test -d venv || $(VIRTUALENV) venv -p $(PYTHON) # Can't do source, no subshells
 	./venv/bin/pip install -U wheel pip pathlib # For 3.5
+
+getversions:
+	update/update.sh
